@@ -1,0 +1,16 @@
+/Users/Acodemy/Projects/ToDoList-NLayered/DataAccess/bin/Debug/net10.0/DataAccess.deps.json
+/Users/Acodemy/Projects/ToDoList-NLayered/DataAccess/bin/Debug/net10.0/DataAccess.dll
+/Users/Acodemy/Projects/ToDoList-NLayered/DataAccess/bin/Debug/net10.0/DataAccess.pdb
+/Users/Acodemy/Projects/ToDoList-NLayered/DataAccess/bin/Debug/net10.0/Domain.dll
+/Users/Acodemy/Projects/ToDoList-NLayered/DataAccess/bin/Debug/net10.0/Domain.pdb
+/Users/Acodemy/Projects/ToDoList-NLayered/DataAccess/obj/Debug/net10.0/DataAccess.csproj.AssemblyReference.cache
+/Users/Acodemy/Projects/ToDoList-NLayered/DataAccess/obj/Debug/net10.0/DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+/Users/Acodemy/Projects/ToDoList-NLayered/DataAccess/obj/Debug/net10.0/DataAccess.AssemblyInfoInputs.cache
+/Users/Acodemy/Projects/ToDoList-NLayered/DataAccess/obj/Debug/net10.0/DataAccess.AssemblyInfo.cs
+/Users/Acodemy/Projects/ToDoList-NLayered/DataAccess/obj/Debug/net10.0/DataAccess.csproj.CoreCompileInputs.cache
+/Users/Acodemy/Projects/ToDoList-NLayered/DataAccess/obj/Debug/net10.0/DataAccess.sourcelink.json
+/Users/Acodemy/Projects/ToDoList-NLayered/DataAccess/obj/Debug/net10.0/DataAccess.csproj.Up2Date
+/Users/Acodemy/Projects/ToDoList-NLayered/DataAccess/obj/Debug/net10.0/DataAccess.dll
+/Users/Acodemy/Projects/ToDoList-NLayered/DataAccess/obj/Debug/net10.0/refint/DataAccess.dll
+/Users/Acodemy/Projects/ToDoList-NLayered/DataAccess/obj/Debug/net10.0/DataAccess.pdb
+/Users/Acodemy/Projects/ToDoList-NLayered/DataAccess/obj/Debug/net10.0/ref/DataAccess.dll

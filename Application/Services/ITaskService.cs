@@ -7,4 +7,10 @@ public interface ITaskService
 {
     Task<List<TaskSummaryDto>> GetAllAsync();
     Task<TaskDetailedDto> GetByIdAsync(Guid id);
+
+
+
+
+
+    
 }
