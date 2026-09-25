@@ -43,7 +43,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tasks");
+                    b.ToTable("WorkItems");
                 });
 #pragma warning restore 612, 618
         }
