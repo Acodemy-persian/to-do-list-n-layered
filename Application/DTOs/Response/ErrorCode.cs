@@ -1,6 +1,6 @@
 using System;
 
-namespace Application.DTOs;
+namespace Application.DTOs.Response;
 
 public enum ErrorCode
 {

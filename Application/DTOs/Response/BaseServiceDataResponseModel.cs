@@ -1,6 +1,6 @@
 using System;
 
-namespace Application.DTOs;
+namespace Application.DTOs.Response;
 
 public record BaseServiceDataResponseModel<T>(bool IsSuccess, string Message, ErrorCode ErrorCode,T? Data) : BaseServiceResponseModel(IsSuccess, Message, ErrorCode)
 {

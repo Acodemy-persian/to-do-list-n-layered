@@ -1,6 +1,4 @@
-using System;
-
-namespace Application.DTOs;
+namespace Application.DTOs.Response;
 
 public record BaseServiceResponseModel(bool IsSuccess, string Message, ErrorCode ErrorCode)
 {

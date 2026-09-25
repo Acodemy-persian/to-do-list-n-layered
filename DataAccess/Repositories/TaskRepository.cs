@@ -32,4 +32,9 @@ public class TaskRepository (AppDbContext appDbContext) : ITaskRepository
         if (task is not null) appDbContext.Remove(task);
         await appDbContext.SaveChangesAsync();
     }
+
+    // public Task RemoveByIdAsync(WorkItem id)
+    // {
+    //     throw new NotImplementedException();
+    // }
 }
