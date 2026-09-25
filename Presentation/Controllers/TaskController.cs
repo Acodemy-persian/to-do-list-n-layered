@@ -25,14 +25,14 @@ public class TaskController(ITaskService taskService) : ControllerBase
         return Ok(result);
     }
 
-    [HttpGet("/{id}")]
+    [HttpGet("{id}")]
     public async Task<IActionResult> GetById(Guid id)
     {
         var result = await taskService.GetByIdAsync(id);
         return Ok(result);
     }
 
-    [HttpDelete("/{id}")]
+    [HttpDelete("{id}")]
     public async Task<IActionResult> RemoveById(Guid id)
     {
         var result = await taskService.RemoveByIdAsync(id);

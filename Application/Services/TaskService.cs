@@ -94,22 +94,45 @@ public class TaskService(ITaskRepository taskRepository, IMapper mapper) : ITask
         // throw new NotImplementedException();
     }
 
+    // public async Task<BaseServiceResponseModel> UpdateAsync(TaskUpdateCommandModel taskUpdateCommandModel)
+    // {
+
+    //     try
+    //     {
+    //         var workItem = await taskRepository.GetByIdAsync(taskUpdateCommandModel.Id);
+    //         workItem = mapper.Map<WorkItem>(taskUpdateCommandModel);
+    //         await taskRepository.UpdateAsync(workItem);
+    //         return BaseServiceResponseModel.Success();
+    //     }
+    //     catch (System.Exception)
+    //     {
+    //         return BaseServiceResponseModel.Failure();
+    //         // throw;
+    //     }
+
+    //     // throw new NotImplementedException();
+    // }
+
+
+
     public async Task<BaseServiceResponseModel> UpdateAsync(TaskUpdateCommandModel taskUpdateCommandModel)
     {
-
         try
         {
             var workItem = await taskRepository.GetByIdAsync(taskUpdateCommandModel.Id);
-            workItem = mapper.Map<WorkItem>(taskUpdateCommandModel);
+
+            if (workItem is null)
+                return BaseServiceResponseModel.Failure("Task not found.");
+
+            mapper.Map(taskUpdateCommandModel, workItem);
+
             await taskRepository.UpdateAsync(workItem);
+
             return BaseServiceResponseModel.Success();
         }
-        catch (System.Exception)
+        catch (Exception)
         {
             return BaseServiceResponseModel.Failure();
-            // throw;
         }
-
-        // throw new NotImplementedException();
     }
 }
