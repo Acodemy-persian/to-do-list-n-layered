@@ -57,22 +57,58 @@ public class TaskService(ITaskRepository taskRepository, IMapper mapper) : ITask
         // throw new NotImplementedException();
     }
 
-    public Task<TaskDetailedDto> GetByIdAsync(Guid id)
+    // public Task<TaskDetailedDto> GetByIdAsync(Guid id)
+    public async Task<BaseServiceDataResponseModel<TaskDetailedDto>> GetByIdAsync(Guid id)
     {
 
-        
+        try
+        {
+            var workItem = await taskRepository.GetByIdAsync(id);
+            var taskDetailedDto = mapper.Map<TaskDetailedDto>(workItem);
+            return BaseServiceDataResponseModel<TaskDetailedDto>.Success(taskDetailedDto);
+        }
+        catch (System.Exception)
+        {
+            return BaseServiceDataResponseModel<TaskDetailedDto>.Failure();
+            // throw;
+        }
 
 
-        throw new NotImplementedException();
+        // throw new NotImplementedException();
     }
 
-    public Task RemoveByIdAsync(Guid id)
+    public async Task<BaseServiceResponseModel> RemoveByIdAsync(Guid id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            await taskRepository.RemoveByIdAsync(id);
+            return BaseServiceResponseModel.Success();
+        }
+        catch (System.Exception)
+        {
+            return BaseServiceResponseModel.Failure();
+            // throw;
+        }
+
+        // throw new NotImplementedException();
     }
 
-    public Task UpdateAsync(TaskUpdateCommandModel taskUpdateCommandModel)
+    public async Task<BaseServiceResponseModel> UpdateAsync(TaskUpdateCommandModel taskUpdateCommandModel)
     {
-        throw new NotImplementedException();
+
+        try
+        {
+            var workItem = await taskRepository.GetByIdAsync(taskUpdateCommandModel.Id);
+            workItem = mapper.Map<WorkItem>(taskUpdateCommandModel);
+            await taskRepository.UpdateAsync(workItem);
+            return BaseServiceResponseModel.Success();
+        }
+        catch (System.Exception)
+        {
+            return BaseServiceResponseModel.Failure();
+            // throw;
+        }
+
+        // throw new NotImplementedException();
     }
 }

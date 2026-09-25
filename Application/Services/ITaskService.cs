@@ -11,11 +11,17 @@ public interface ITaskService
     Task<BaseServiceDataResponseModel<List<TaskSummaryDto>>> GetAllAsync();
     // Task<List<TaskSummaryDto>> GetAllAsync();
 
-    Task<TaskDetailedDto> GetByIdAsync(Guid id);
+    Task<BaseServiceDataResponseModel<TaskDetailedDto>> GetByIdAsync(Guid id);
+
+    // Task<TaskDetailedDto> GetByIdAsync(Guid id);
 
     // Task<Guid> AddAsync(TaskAddCommandModel taskAddCommandModel);
 
-    Task UpdateAsync(TaskUpdateCommandModel taskUpdateCommandModel);
+    Task<BaseServiceResponseModel> RemoveByIdAsync(Guid id);
 
-    Task RemoveByIdAsync(Guid id);
+    // Task UpdateAsync(TaskUpdateCommandModel taskUpdateCommandModel);
+
+    Task<BaseServiceResponseModel> UpdateAsync(TaskUpdateCommandModel taskUpdateCommandModel);
+
+    // Task RemoveByIdAsync(Guid id);
 }
