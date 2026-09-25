@@ -1,25 +1,26 @@
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repositories;
 
 public class TaskRepository (AppDbContext appDbContext) : ITaskRepository
 {
-    public async Task<IReadOnlyList<Task>> GetAllAsync()
+    public async Task<IReadOnlyList<WorkItem>> GetAllAsync()
     {
         return await appDbContext.Tasks.ToListAsync();
     }
-    public async Task<Task?> GetByIdAsync(Guid id)
+    public async Task<WorkItem?> GetByIdAsync(Guid id)
     {
         return await appDbContext.Tasks.FindAsync(id);
     }
 
-    public async Task AddAsync(Task task)
+    public async Task AddAsync(WorkItem task)
     {
         await appDbContext.Tasks.AddAsync(task);
         await appDbContext.SaveChangesAsync();
     }
 
-    public async Task UpdateAsync(Task task)
+    public async Task UpdateAsync(WorkItem task)
     {
         appDbContext.Tasks.Update(task);
         await appDbContext.SaveChangesAsync();

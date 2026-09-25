@@ -2,7 +2,7 @@ using System;
 
 namespace Domain.Entities;
 
-public class Task
+public class WorkItem
 {
     public Guid Id {get; set;}
     public string Title {get; set;} = null!;

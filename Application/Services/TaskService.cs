@@ -1,25 +1,68 @@
 using System;
+using Application.DTOs;
 using Application.DTOs.Task;
+using AutoMapper;
+using DataAccess.Repositories;
+using Domain.Entities;
 
 namespace Application.Services;
 
-public class TaskService : ITaskService
+public class TaskService(ITaskRepository taskRepository, IMapper mapper) : ITaskService
 {
-    public Task<Guid> AddAsync(TaskAddCommandModel taskAddCommandModel)
-    {
-        throw new NotImplementedException();
 
+    // private readonly ITaskRepository taskRepository;
+    // public async Task<Guid> AddAsync(TaskAddCommandModel taskAddCommandModel)
+    public async Task<BaseServiceDataResponseModel<Guid>> AddAsync(TaskAddCommandModel taskAddCommandModel)
+    {
+        // throw new NotImplementedException();
+
+        try
+        {
+            // var taskEntity = new WorkItem();
+            var taskEntity = mapper.Map<WorkItem>(taskAddCommandModel);
+
+            // ToDo: Use AutoMapper
+            await taskRepository.AddAsync(taskEntity);
+            // return taskEntity.Id; 
+            return BaseServiceDataResponseModel<Guid>.Success(taskEntity.Id);
+        }
+        catch (System.Exception)
+        {
+            return BaseServiceDataResponseModel<Guid>.Failure();
+            // throw;
+        }
         
 
     }
 
-    public Task<List<TaskSummaryDto>> GetAllAsync()
+    // public Task<List<TaskSummaryDto>> GetAllAsync()
+    public async Task<BaseServiceDataResponseModel<List<TaskSummaryDto>>> GetAllAsync()
     {
-        throw new NotImplementedException();
+
+        try
+        {
+            var allTasks = await taskRepository.GetAllAsync();
+            var taskSummaryDtos = mapper.Map<List<TaskSummaryDto>>(allTasks);
+            // all
+
+            return BaseServiceDataResponseModel<List<TaskSummaryDto>>.Success(taskSummaryDtos);
+        }
+        catch (System.Exception)
+        {
+            return BaseServiceDataResponseModel<List<TaskSummaryDto>>.Failure();
+            // throw;
+        }
+
+
+        // throw new NotImplementedException();
     }
 
     public Task<TaskDetailedDto> GetByIdAsync(Guid id)
     {
+
+        
+
+
         throw new NotImplementedException();
     }
 
